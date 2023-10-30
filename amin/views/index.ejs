@@ -49,13 +49,19 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
-                 </tr>
+                    <th>Operation</th>
+                </tr>
 
                   <% for(var i = 0; i < users.length; i++){%>
                   <tr>
                      <td><%= users[i].id %></td>
                      <td><%= users[i].name %></td>
                      <td><%= users[i].email%></td>
+                     <td>
+                         <form action="/<%= users[i].id %>?method=DELETE" method="post">
+                             <input type="submit" value="Delete">
+                         </form></td>
+
                  </tr>
                 <%}%>
             </table>

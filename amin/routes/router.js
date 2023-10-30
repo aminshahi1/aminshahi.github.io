@@ -6,7 +6,7 @@ let b = 0;
 
 
 
-const users = require('./../Users')
+let users = require('./../Users');
 
 router.get('/', (req,res)=>{
     res.render('index', {users : users , v,b});
@@ -31,10 +31,18 @@ router.post('/',
         v = v+1;
         b = 0;
     }
-
         res.render('index', {users : users, v,b});
+})
+
+router.delete('/:id', (req,res)=>{
+    users = users.filter(user => {
+        if(user.id != req.params.id){
+            return user;
+        }
+    })
 
 
+    res.render('index', {users : users , v, b});
 })
 
 
