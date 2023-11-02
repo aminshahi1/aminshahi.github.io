@@ -1,8 +1,129 @@
 body{
-    background-color: darkgrey;
+    background-image: url("./../img/Background.jpg");
+    background-size: cover;
+}
+nav{
+    background-color: #54a3ff;
+    height: 130px;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+ul{
+    list-style: none;
+    display: flex;
+}
+a{
+    text-decoration: none;
+    font-family: Candara;
+    margin: 50px;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    transition: 2s;
+    font-weight: bold;
+}
+a:hover{
+    background-color: #545654;
+    border-radius: 35px;
+    transition: 2s;
+    padding: 15px;
+}
+#img1{
+    height: 65%;
+}
+#div1{
+    margin-left: 150px;
+}
+#div2{
+    margin-right: 100px;
+}
+#div3{
+    margin: auto;
+    text-align: center;
+}
+#h1{
+    text-align: center;
+    color: white;
+    display: inline-block;
+    margin-top: 50px;
+    background-color: rgba(89, 89, 89, 0.82);
+    padding: 20px;
+    border-radius: 30px;
+    font-family: Consolas;
+    padding-left: 150px;
+    padding-right: 150px;
+
 }
 
-li{
+#div4{
+    background-color: rgba(42, 42, 100, 0.85);
+    margin: auto;
+    display: flex;
+    height: 350px;
+    width: 400px;
+    justify-content: center;
     text-align: center;
-    font-size: 100px;
+    border-radius: 40px;
+    border: 2px solid #a4359b;
+}
+div5{
+    text-align: center;
+}
+h2{
+    color: white;
+    font-size: 30px;
+}
+label{
+    color: #82ffbd;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#email,#pass{
+    border: 2px solid #000000;
+    border-radius: 30px;
+    height: 40px;
+    box-shadow: 0 0 8px 1px #a16565;
+    background-color: rgba(255, 255, 255, 0.68);
+    font-size: 15px;
+}
+#fname:hover{
+    border: 2px solid #ffffff;
+}
+#sub{
+    font-size: 25px;
+    padding: 10px;
+    background-color: #4f524f;
+    border-radius: 25px;
+    font-weight: bold;
+    padding-right: 30px;
+    padding-left: 30px;
+    border: 1px solid #4f524f;
+}
+#sub:hover{
+    background-color: #277027;
+    transition: 3s;
+}
+#div6{
+    height: 100px;
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.72);
+    display: flex;
+    margin: auto;
+    border-radius: 25px;
+    justify-content: center;
+}
+#erh1{
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    padding: 0px;
+    margin-top: 35px;
+    font-size: 30px;
 }
