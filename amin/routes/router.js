@@ -1,66 +1,81 @@
 const express = require('express');
 const router = express.Router();
-const {check, validationResult} = require('express-validator')
-let v = 0;
-let b = 0;
-let c = 0;
 
+const { check, validationResult } = require('express-validator');
+const users = require('./../Users');
 
-
-let users = require('./../Users');
-users.sort();
+let login = 0;
+let signup = 0;
 
 router.get('/', (req,res)=>{
-    users.sort();
-    res.render('index', {users : users , v,b,c});
-    v = 0;
+    login = 0;
+    signup = 0;
+    res.render('Home', {users : users, signup, login});
+});
+router.get('/Home', (req,res)=>{
+    login = 0;
+    signup = 0;
+    res.render('Home', {users : users, signup, login});
+});
+router.get('/About', (req,res)=>{
+    login = 0;
+    signup = 0;
+    res.render('About', {users : users, signup, login});
+})
+router.get('/Login', (req,res)=>{
+    res.render('Login', {users : users, signup, login});
 })
 
-router.post('/',
-    check('id').isInt(),
-    check('name').isString(),
+
+
+router.post('/signup',
     check('email').isEmail(),
+    check('password').isLength({min : 5}),
     (req,res)=>{
-    users.sort();
     const errors = validationResult(req);
-    if(errors.isEmpty()) {
-        for (let a = 0; a < 1; a++) {
-            req.body.id = parseInt(req.body.id);
-            users[users.length] = {id: req.body.id, name: req.body.name, email: req.body.email};
-            v = 0;
-            b = 1;
-            c = 0;
-        }
-    }else if(!errors.isEmpty()){
-        v = v+1;
-        b = 0;
-        c = 0;
+    if(!errors.isEmpty()){
+        signup = 1;
     }
-        res.render('index', {users : users, v,b,c});
-})
-
-router.delete('/:id', (req,res)=>{
-    users.sort();
-    users = users.filter(user => {
-        if(user.id != req.params.id){
-            c = 1;
-            v = 0;
-            b = 0;
-            return user;
+    if(errors.isEmpty()){
+        signup = 0;
+    }
+    for(let c = 0; c < users.length; c++){
+        if(req.body.email == users[c].email){
+            signup = 1;
         }
-    })
-    res.render('index', {users : users , v, b,c});
-})
+    }
+    if (signup == 1){
+        res.render('Home', {users : users, signup, login});
+    }
+    if (signup == 0){
+        req.body.age = parseInt(req.body.age);
+        users[users.length] = {id: users.length+1, fname: req.body.fname, lname: req.body.lname, age: req.body.age, email: req.body.email, password: req.body.password};
+        console.log(users)
+        res.render('Login', {users : users, signup, login});
+    }
+});
 
-router.get('/user/:id', (req,res)=>{
-    var w;
-    for(let a = 0; a <users.length; a++){
-        if(users[a].id = req.params.id){
+
+
+
+
+router.post('/login', (req,res)=>{
+    login = 0;
+    let w ;
+    let help = 1;
+    for(let a = 0; a < users.length; a++){
+        if(users[a].email == req.body.email2 && users[a].password == req.body.password2){
+            login = 0;
             w = a;
+            help = 0;
+            res.render('Wellcome', {users : users, signup, login, w});
         }
     }
-    res.render('user',{users : users , w});
+
+    if(help == 1){
+        login = 1;
+        res.render('Login', {users:users ,login,signup});
+    }
+
 })
-
-
 module.exports = router;
