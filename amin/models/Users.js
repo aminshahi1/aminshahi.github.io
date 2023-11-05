@@ -10,4 +10,4 @@ const userSchema = new Schema({
     email : {type: String, required: true}
 });
 
-module.exports = mongoose.model("Amin Shahi", userSchema,"Amin Shahi");
+module.exports = mongoose.model("Amin", userSchema,"Amin");
