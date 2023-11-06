@@ -5,7 +5,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended : false}));
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/Amin').then(()=>{
+mongoose.connect('mongodb+srv://Amin:AminShahi0921@amin.vu1ezmz.mongodb.net/?retryWrites=true&w=majority').then(()=>{
     console.log("Connected to Mongodb");
 });
 
