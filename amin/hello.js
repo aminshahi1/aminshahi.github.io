@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8080;
 mongoose.set('strictQuery', false);
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://Amin:AminShahi0921@amin.vu1ezmz.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URL;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
