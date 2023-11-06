@@ -5,7 +5,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended : false}));
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://AminShahi:em77wJNhpFNXnSeQ@amin.vu1ezmz.mongodb.net/?retryWrites=true&w=majority").then(()=>{
+mongoose.connect("mongodb+srv://Amin:AminShahi0921@amin.vu1ezmz.mongodb.net/Amin?retryWrites=true&w=majority", {useNewUrlParse: true, useUnifiedTopology: true}).then(()=>{
     console.log("Connected to Mongodb");
 });
 
