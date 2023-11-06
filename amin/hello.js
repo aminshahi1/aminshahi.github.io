@@ -1,20 +1,13 @@
 const express = require('express');
 const app = express();
 
-require('dotenv').config();
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended : false}));
 const mongoose = require('mongoose');
 
-const PORT = process.env.PORT || 8080;
-
-mongoose.set('strictQuery', false);
-
-mongoose.connect('mongodb://127.0.0.1:27017/test').then(()=>{
+mongoose.connect('mongodb://127.0.0.1:27017/Amin').then(()=>{
     console.log("Connected to Mongodb");
 });
-
-
 
 
 app.set('view engine', 'ejs');
